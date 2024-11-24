@@ -1,0 +1,31 @@
+[package]
+name = "labelo"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+image = { version=">=0.24.9", features=["default"] }
+serde = ">=1.0"
+toml = ">=0.8.19"
+serde_json = ">=1.0"
+dirs = ">=5.0.1"
+egui = ">=0.29.1"
+eframe = ">=0.29.1"
+mini-moka = ">=0.10"
+# moka = { version = ">=0.12", features = ["sync"] }
+# video-rs = { version = ">=0.10", features = ["ndarray"] }
+# egui_file = ">=0.14"
+egui_dialogs = ">=0.3.5"
+egui_extras = { version=">=0.29.1", features=["all_loaders"] }
+eye-hal = { version = ">=0.2", optional = true }
+parry2d = ">=0.17"
+[features]
+camera = ["dep:eye-hal"]
+default = []
+
+[dependencies.clap]
+version = ">=4.5"
+default-features = true
+features = ["derive"]
