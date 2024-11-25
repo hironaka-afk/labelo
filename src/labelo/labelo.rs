@@ -346,7 +346,11 @@ impl AnnotationSequence {
         if let Some(ann) = ann {
             for a in &mut self.annotations {
                 if a.frame >= frame {
-                    a.invisible = ann.invisible;
+                    // Only copy the invisible flag forward if the ann is invisible.
+                    // Don't set forward annotations from invisible to visible when copying.
+                    if ann.invisible && !a.invisible {
+                        a.invisible = ann.invisible;
+                    }
                     a.labels = ann.labels.clone();
                 }
             }
