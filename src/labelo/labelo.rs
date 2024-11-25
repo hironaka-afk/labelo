@@ -65,7 +65,11 @@ impl LabelTask {
                 for frame in 0..frame_count {
                     let a = seq.get_interpolated_annotation_for_frame(frame);
                     if let Some(a) = a {
-                        if (save_only_visible && !a.interpolated) || !save_only_visible {
+                        if (save_only_visible) {
+                            if !a.invisible || !a.interpolated {
+                                s.annotations.push(a);
+                            }
+                        } else {
                             s.annotations.push(a);
                         }
                     }
