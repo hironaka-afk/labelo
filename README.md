@@ -5,19 +5,26 @@ A simple tool for drawing boxes around stuff in videos, and label them with some
 Run it:
 ```sh
 $> labelo -h
-Labeling video sequences. The sequences should be images in a directory, named so that they can be sorted alphanumerically. Run without the --label_config argument to generate a default label configuration file in ~/.labelo_config.toml. You can use that to build your own. If the file defined by --label_config does not exist, it will also be created and filled with default values, so you can modify it to your liking
+Labeling video sequences. The sequences should be images in a directory, named so that they can be
+sorted alphanumerically. Run without the --label_config argument to generate a default label
+configuration file in ~/.labelo_config.toml. You can use that to build your own. If the file
+defined by --label_config does not exist, it will also be created and filled with default values,
+so you can modify it to your liking.
 
 Usage: labelo [OPTIONS]
 
 Options:
   -l, --label-config <LABEL_CONFIG>  Label configuration file, defining which labels to use
   -i, --input-dir <INPUT_DIR>        Input directory containing the images
-  -o, --output-file <OUTPUT_FILE>    Output label file (json format). If the file exists, it will be read at startup [default: labels.json]
+  -o, --output-file <OUTPUT_FILE>    Output label file (json format). If the file exists, it will be
+                                     read at startup [default: labels.json]
   -h, --help                         Print help
   -V, --version                      Print version
 ```
 
 E.g. `labelo -l labelo_config.toml -i my_images_dir/ -o my_labels.json`
+
+If the config file does not exist, it will be created with some defaul configuration. You need to edit it to fit your needs. If the output json file exists, it will be read so you can edit your annotations.
 
 # Config file
 Looks like this:
